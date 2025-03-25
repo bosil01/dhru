@@ -125,16 +125,12 @@ function sendPostRequest($url, $data)
 function validateApiKey() {
     $headers = apache_request_headers();
 
-    if (!isset($headers['Authorization'])) {
-        output('error', 'Authorization token is required.', null, 401);
+    if (!isset($headers['X-Api-Key'])) {
+        output('error', 'Api Key token is required in header.', null, 401);
     }
 
-    $authHeader = trim($headers['Authorization']);
-    if (strpos($authHeader, 'Bearer ') !== 0) {
-        output('error', 'Invalid Authorization token format.', null, 401);
-    }
+    $token = trim($headers['X-Api-Key']);
 
-    $token = substr($authHeader, 7); // Extract the token
     if (!validateKey($token)) { // Implement token validation logic
         output('error', 'Unauthorized. Invalid or expired token.', null, 401);
     }
@@ -142,7 +138,6 @@ function validateApiKey() {
 
 function validateKey($token) {
     global $apiKeys;
+
     return in_array($token, $apiKeys);
 }
-
-

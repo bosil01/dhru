@@ -85,7 +85,9 @@ class Database
                 order_date DATETIME NOT NULL,
                 status VARCHAR(50),
                 received_amount DECIMAL(10,5),
-                transaction_id VARCHAR(255)
+                transaction_id VARCHAR(255),
+                received_info LONGTEXT,
+                ipn_response LONGTEXT
             );
         ",
             // Add more tables here
