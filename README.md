@@ -165,7 +165,7 @@ This aggregated system functions as follows:
 ### Using Postman
 You can use the following Postman collection to test all the API endpoints:
 
-**[Postman Link - Dhru Fusion PGDK](https://www.postman.com/dhrucloud/workspace/payment-gateway-development-kit)**
+**[Postman Link - Dhru Fusion PGDK](https://documenter.getpostman.com/view/23443351/2sB2cShPhW)**
 
 Steps:
 1. Open the shared collection link.
